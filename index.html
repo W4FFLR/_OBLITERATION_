@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            position: relative;
+            overflow: hidden; /* Prevent scrollbars from appearing */
+        }
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+        .background-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .centered-image {
+            position: absolute;
+            top: 65%; /* Lowered position for Untitled-3.png */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 20%; /* Adjust the size of the image */
+            height: auto;
+            cursor: pointer; /* Indicates the image is clickable */
+        }
+        .upper-image {
+            position: absolute;
+            top: 50%; /* Positioned slightly above Untitled-3.png */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 95%; /* Adjust the size of the image */
+            height: auto;
+        }
+        .text-container {
+            position: absolute;
+            top: 0; /* Start at the top of the page */
+            left: 0;
+            width: 100%; /* Full width of the page */
+            height: 100%; /* Full height of the page */
+            color: red;
+            font-size: 1.2em;
+            font-family: Arial, sans-serif;
+            white-space: pre-wrap; /* Preserve formatting for the HTML */
+            overflow: hidden; /* Prevent scrollbars */
+            z-index: 10; /* Ensure it overlaps everything */
+            pointer-events: none; /* Prevent interaction with text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Background image -->
+        <img src="opening page.png" alt="Opening Page" class="background-image">
+
+        <!-- Upper image -->
+        <img src="bum.png" alt="Upper Image" class="upper-image">
+
+        <!-- Lower centered image wrapped in a link -->
+        <a href="1st.html">
+            <img src="Untitled-3.png" alt="Centered Image" class="centered-image">
+        </a>
+    </div>
+
+    <!-- Typing effect text container -->
+    <div id="typing-text" class="text-container"></div>
+
+    <script>
+        // Typing effect
+        const text = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            position: relative;
+        }
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+        .background-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .centered-image {
+            position: absolute;
+            top: 65%; /* Lowered position for Untitled-3.png */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 20%; /* Adjust the size of the image */
+            height: auto;
+        }
+        .upper-image {
+            position: absolute;
+            top: 50%; /* Positioned slightly above Untitled-3.png */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 95%; /* Adjust the size of the image */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Background image -->
+        <img src="opening page.png" alt="Opening Page" class="background-image">
+
+        <!-- Upper image -->
+        <img src="bum.png" alt="Upper Image" class="upper-image">
+
+        <!-- Lower centered image -->
+        <img src="Untitled-3.png" alt="Centered Image" class="centered-image">
+    </div>
+</body>
+</html>`;
+        const typingText = document.getElementById('typing-text');
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typingText.textContent += text[index];
+                index++;
+                setTimeout(type, 20); // Adjust typing speed (milliseconds per character)
+            }
+        }
+
+        // Start typing
+        type();
+    </script>
+</body>
+</html>
