@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: black; /* Black background */
+            color: white; /* White text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            overflow: hidden;
+        }
+        #text {
+            display: flex;
+            align-items: center;
+        }
+        #last-dot {
+            animation: blink 1s steps(1) infinite; /* Flashing effect */
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="text"></div>
+
+    <script>
+        const text = "end..";
+        const textElement = document.getElementById("text");
+        let index = 0;
+
+        function typeText() {
+            if (index < text.length) {
+                if (index === text.length - 1) {
+                    // Add the last dot with flashing effect
+                    textElement.innerHTML += `<span id="last-dot">${text[index]}</span>`;
+                } else {
+                    // Add normal text
+                    textElement.textContent += text[index];
+                }
+                index++;
+                setTimeout(typeText, 500); // Typing speed
+            }
+        }
+
+        // Start typing effect
+        typeText();
+    </script>
+</body>
+</html>
